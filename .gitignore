@@ -48,6 +48,10 @@ ExportedObj/
 *.VC.db
 *.hlsl
 *.shader
+# Unity-specific files
+*.shader linguist-vendored
+*.cginc linguist-vendored
+*.hlsl linguist-vendored
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
