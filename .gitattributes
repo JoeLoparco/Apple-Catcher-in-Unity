@@ -19,3 +19,4 @@ Assets/TextMesh* linguist-documentation
 *.shader linguist-detectable=false
 *.shadergraph linguist-detectable=false
 *.hlsl linguist-detectable=false
+*.hlsl linguist-language=HLSL linguist-detectable=false linguist-documentation=true
