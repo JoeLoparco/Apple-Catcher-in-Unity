@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Apple : MonoBehaviour
+public class PoisionApple : MonoBehaviour
 {
     public static float bottomY = -20f;
     private ScoreCounter scoreCounter; 
@@ -12,13 +12,12 @@ public class Apple : MonoBehaviour
         scoreCounter = GameObject.FindObjectOfType<ScoreCounter>();
         if (scoreCounter == null)
         {
-            Debug.LogError("ScoreCounter Not Found In Apple.cs");
+            Debug.LogError("ScoreCounter Not Found In PoisonApple.cs");
         }
     }
     void Update()
     {
        if (transform.position.y < bottomY) {
-            scoreCounter.applesMissed ++;
             Destroy (this.gameObject);
        } 
     }

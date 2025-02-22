@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class GoldenApple : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static float bottomY = -20f;
     private ScoreCounter scoreCounter; 
-
-    // Update is called once per frame
     void Start()
     {
         scoreCounter = GameObject.FindObjectOfType<ScoreCounter>();
         if (scoreCounter == null)
         {
-            Debug.LogError("ScoreCounter Not Found In Apple.cs");
+            Debug.LogError("ScoreCounter Not Found In GoldenApple.cs");
         }
     }
     void Update()

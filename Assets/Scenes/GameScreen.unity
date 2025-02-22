@@ -691,6 +691,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2331310578295561933, guid: 0f5643b153a1f34498ab6a110a3cd460, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331310578295561933, guid: 0f5643b153a1f34498ab6a110a3cd460, type: 3}
       propertyPath: applePrefab
       value: 
       objectReference: {fileID: 699618251781458408, guid: be3501cddc5920e4b8c2750fc16c4d13, type: 3}

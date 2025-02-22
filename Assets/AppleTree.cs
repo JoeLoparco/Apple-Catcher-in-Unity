@@ -8,6 +8,8 @@ public class AppleTree : MonoBehaviour
     public GameObject applePrefab;
 
     public GameObject goldenApplePrefab;
+
+    public GameObject poisionApplePrefab;
     public float speed = 1f; // 1f = 1frame
     
     public float leftAndRightEdge = 10f;
@@ -24,13 +26,17 @@ public class AppleTree : MonoBehaviour
     }
 
     void DropApple() {
-        if(Random.value > 0.1){
+        if(Random.value > 0.2){
             GameObject apple = Instantiate<GameObject>(applePrefab);
             apple.transform.position = transform.position; // instaniate apple at apple tree pos
             Invoke("DropApple", appleDropDelay);
-        }else{
+        }else if(Random.value > .5){
             GameObject goldenApple = Instantiate<GameObject>(goldenApplePrefab);
             goldenApple.transform.position = transform.position; // instaniate apple at apple tree pos
+            Invoke("DropApple", appleDropDelay);
+        }else{
+            GameObject poisionApple = Instantiate<GameObject>(poisionApplePrefab);
+            poisionApple.transform.position = transform.position; // instaniate apple at apple tree pos
             Invoke("DropApple", appleDropDelay);
         }
     }

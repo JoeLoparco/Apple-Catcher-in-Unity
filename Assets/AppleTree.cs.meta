@@ -6,6 +6,7 @@ MonoImporter:
   defaultReferences:
   - applePrefab: {fileID: 699618251781458408, guid: be3501cddc5920e4b8c2750fc16c4d13, type: 3}
   - goldenApplePrefab: {fileID: 6584324241538100667, guid: 8d22097ea6c36704d807a736fc08b5dc, type: 3}
+  - poisionApplePrefab: {fileID: 1605806853924343871, guid: 2fa11ed0050aefe489d8e0667dddff6c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

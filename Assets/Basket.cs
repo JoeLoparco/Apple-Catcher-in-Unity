@@ -5,7 +5,6 @@ using UnityEngine;
 public class Basket : MonoBehaviour
 {
     [SerializeField] public ScoreCounter scoreCounter; // Create score counter
-    private bool initialized = false;
     
     void Start()
     {
@@ -14,7 +13,6 @@ public class Basket : MonoBehaviour
         Debug.Log("Found ScoreCounter GameObject: " + scoreGO);
         scoreCounter = scoreGO.GetComponent<ScoreCounter>();
         Debug.Log("Got ScoreCounter component: " + scoreCounter);
-        initialized = true;
     }
 
     void OnCollisionEnter(Collision coll)
@@ -39,6 +37,16 @@ public class Basket : MonoBehaviour
             if (scoreCounter != null)
             {
                 scoreCounter.score += 500;
+            }
+            else
+            {
+                Debug.LogError($"Basket {GetInstanceID()} - scoreCounter is null at point of score update!");
+            }
+        }else if(collidedWith.CompareTag("PoisionApple")){
+            Destroy(collidedWith);
+            if (scoreCounter != null)
+            {
+                scoreCounter.applesMissed += 1;
             }
             else
             {

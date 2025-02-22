@@ -7,19 +7,20 @@ public class ScoreCounter : MonoBehaviour
     [Header("Dynamic")]
     public int score = 0;
     public int applesMissed = 0;
-    [SerializeField] private TextMeshProUGUI uiText;  // Add SerializeField to assign in Inspector
+    [SerializeField] private TextMeshProUGUI uiText;
+    private int previousMissedCount = 0;  // Track previous missed count to detect new misses
+    private GameObject[] baskets;  // Store basket references
 
     void Start() 
     {
-        // Only try to get component if it hasn't been assigned in Inspector
         if (uiText == null)
         {
-            uiText = GetComponentInChildren<TextMeshProUGUI>();  // Try to find in children
+            uiText = GetComponentInChildren<TextMeshProUGUI>();
             
             if (uiText == null)
             {
                 Debug.LogError("Could not find TextMeshProUGUI component! Please assign it in the Inspector.");
-                enabled = false; // Disable the script to prevent null reference in Update
+                enabled = false;
                 return;
             }
         }
@@ -27,12 +28,26 @@ public class ScoreCounter : MonoBehaviour
 
     void Update() 
     {
-        if (applesMissed == 3){
-           SceneManager.LoadScene(2); // Load Game Screen
-        }
-        if (uiText != null)  // Add null check for safety
+        if (uiText != null)
         {
-            uiText.text = "High Score:" +score.ToString("#,0");
+            uiText.text = "High Score:" + score.ToString("#,0");
+        }
+
+        if (applesMissed > previousMissedCount)
+        {
+            baskets = GameObject.FindGameObjectsWithTag("Basket");
+            
+            if (baskets != null && baskets.Length > 0)
+            {
+                Destroy(baskets[baskets.Length - 1]);
+            }
+            
+            previousMissedCount = applesMissed;
+        }
+
+        if (applesMissed == 3)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 }
